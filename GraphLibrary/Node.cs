@@ -21,20 +21,16 @@ public class Edge
 
     public Node OtherNode(Node node)
     {
-        if (From == node)
-        {
-            return To;
-        }
-
-        else if (To == node)
-        {
-            return From;
-        }
-        else
+        if (!IsIncident(node))
         {
             throw new ArgumentException();
         }
 
+        if (From == node)
+        {
+            return To;
+        }
+        return From;
     }
 }
 
@@ -55,11 +51,14 @@ public class Node
     {
         get
         {
-            return edges.Where(x => x.IsIncident(this));
+            foreach (var item in edges)
+            {
+                yield return item;
+            }
         }
     }
 
-    public static void AddIncidentNode(Node from, Node to, Graph graph)
+    public static Edge AddIncidentNode(Node from, Node to, Graph graph)
     {
         if (!graph.Nodes.Contains(from) || !graph.Nodes.Contains(to))
         {
@@ -70,6 +69,8 @@ public class Node
 
         from.edges.Add(edge);
         to.edges.Add(edge);
+
+        return edge;
     }
 }
 
@@ -117,7 +118,7 @@ public class Graph
     {
         var graph = new Graph(incidentNodes.Max() + 1);
 
-        for (int i = 0; i < incidentNodes.Length; i += 2)
+        for (int i = 0; i < incidentNodes.Length - 1; i += 2)
         {
             graph.AddIncidentNode(incidentNodes[i], incidentNodes[i + 1]);
         }
