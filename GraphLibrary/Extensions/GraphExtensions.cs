@@ -26,7 +26,7 @@ public static class GraphExtensions
         }
 
         return result;
-    }
+    }  
 
     public static IEnumerable<Node> FindShortPath(this Graph graph, Node start, Node finish)
     {
@@ -38,7 +38,7 @@ public static class GraphExtensions
         {
             var prevNode = queue.Dequeue();
 
-            foreach (var nextNode in prevNode.InciditNodes)
+            foreach (var nextNode in prevNode.IncidentNodes)
             {
                 if (track.ContainsKey(nextNode))
                 {

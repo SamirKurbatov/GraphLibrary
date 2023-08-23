@@ -2,13 +2,19 @@
 using GraphLibrary.Extensions;
 
 var graph = Graph.Create(
-        0, 1,
-            0, 2,
-            1, 4,
-            2, 3,
-            3, 4
+        0,1,1,2,2,0
     );
 
+var res = GraphLogic.TarjanAlgorithm(graph);
+
+foreach (var item in res)
+{
+    Console.WriteLine(item.Number);
+}
+
+var s = GraphLogic.HasCycle(graph.Nodes);
+
+Console.WriteLine(s);
 
 var conected = graph.FindDependingComponents();
 Console.WriteLine(conected

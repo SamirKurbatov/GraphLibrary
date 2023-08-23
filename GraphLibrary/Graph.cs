@@ -1,4 +1,7 @@
-﻿namespace GraphLibrary;
+﻿using GraphLibrary.Extensions;
+using System.Xml.Linq;
+
+namespace GraphLibrary;
 
 public class Graph
 {

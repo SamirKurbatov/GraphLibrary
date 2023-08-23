@@ -13,7 +13,7 @@ public class Node
 
     private readonly List<Edge> edges = new List<Edge>();
 
-    public IEnumerable<Node> InciditNodes => edges.Select(x => x.OtherNode(this));
+    public IEnumerable<Node> IncidentNodes => edges.Select(x => x.OtherNode(this));
 
     public IEnumerable<Edge> InciditEdges
     {

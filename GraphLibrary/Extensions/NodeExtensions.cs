@@ -15,7 +15,7 @@ public static class NodeExtensions
             var currentNode = stack.Pop();
             yield return currentNode;
 
-            foreach (var incideantNode in currentNode.InciditNodes.Where(z => !visited.Contains(z)))
+            foreach (var incideantNode in currentNode.IncidentNodes.Where(z => !visited.Contains(z)))
             {
                 visited.Add(incideantNode);
                 stack.Push(incideantNode);
@@ -36,7 +36,7 @@ public static class NodeExtensions
             var currentNode = queue.Dequeue();
             yield return currentNode;
 
-            foreach (var incideantNode in currentNode.InciditNodes.Where(z => !visited.Contains(z)))
+            foreach (var incideantNode in currentNode.IncidentNodes.Where(z => !visited.Contains(z)))
             {
                 visited.Add(incideantNode);
                 queue.Enqueue(incideantNode);
