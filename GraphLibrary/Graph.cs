@@ -38,9 +38,9 @@ public class Graph
         }
     }
 
-    private void AddIncidentNode(int v1, int v2)
+    public Edge AddIncidentNode(int v1, int v2)
     {
-        Node.AddIncidentNode(nodes[v1], nodes[v2], this);
+        return Node.AddIncidentNode(nodes[v1], nodes[v2], this);
     }
 
     public static Graph Create(params int[] incidentNodes)
